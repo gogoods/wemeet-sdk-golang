@@ -1,0 +1,4 @@
+.idea/
+*.tmp
+*.ini
+./examples/main.go
