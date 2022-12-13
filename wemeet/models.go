@@ -17,6 +17,8 @@ var (
 	RequestDescriptorRecordList                   = MeetingRequestDescriptor{"/records", "GET", "QUERY"}
 	RequestDescriptorRecordAddress                = MeetingRequestDescriptor{"/addresses", "GET", "QUERY"}
 	RequestDescriptorRecordDetail                 = MeetingRequestDescriptor{"/addresses/%s", "GET", "QUERY"}
+	RequestDescriptorRealControlCohosts           = MeetingRequestDescriptor{"/real-control/meetings/%s/cohosts", "PUT", "QUERY"}
+	RequestDescriptorRealControlScreenShared      = MeetingRequestDescriptor{"/real-control/meetings/%s/screen-shared", "PUT", "UPDATE"}
 )
 
 // UserObj  用户对象 https://cloud.tencent.com/document/product/1095/42417
@@ -97,11 +99,13 @@ type SimplifiedMeetingInfo struct {
 
 // 参会人员信息
 type MeetingParticipants struct {
-	UserID                string `json:"userid"`    // 参会者用户 ID。
-	Base64EncodedUsername string `json:"user_name"` // 入会用户名（base64）
-	SHA256HashedPhone     string `json:"phone"`     // 参会者手机号 hash 值 SHA256（手机号/secretid）。
-	JoinTime              string `json:"join_time"` // 参会者加入会议时间戳（单位秒）。
-	LeftTime              string `json:"left_time"` // 参会者离开会议时间戳（单位秒）。
+	UserID string `json:"userid"` // 参会者用户 ID。
+	//Base64EncodedUsername string `json:"user_name"` // 入会用户名（base64）
+	//SHA256HashedPhone     string `json:"phone"`     // 参会者手机号 hash 值 SHA256（手机号/secretid）。
+	UserName string `json:"user_name"` // 入会用户名（base64）
+	Phone    string `json:"phone"`     // 参会者手机号 hash 值 SHA256（手机号/secretid）。
+	JoinTime string `json:"join_time"` // 参会者加入会议时间戳（单位秒）。
+	LeftTime string `json:"left_time"` // 参会者离开会议时间戳（单位秒）。
 }
 
 // 查询用户的会议列表中会议对象

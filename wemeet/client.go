@@ -215,7 +215,6 @@ func (meeting Meeting) Do(req MeetingRequest) (MeetingResponse, error) {
 	if val.Kind().String() == "ptr" {
 		val = val.Elem()
 		typ = typ.Elem()
-		//todo
 	}
 
 	params := make([]interface{}, 0, 3)
@@ -274,7 +273,7 @@ func (meeting Meeting) Do(req MeetingRequest) (MeetingResponse, error) {
 
 	resp, err := client.Do(hReq)
 
-	fmt.Println("@@@@@@@@@@", reqBody, err)
+	//fmt.Println("@@@@@@@@@@", reqBody, err)
 
 	if err != nil {
 		//log.Println(err)
