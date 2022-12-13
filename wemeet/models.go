@@ -98,14 +98,26 @@ type SimplifiedMeetingInfo struct {
 }
 
 // 参会人员信息
-type MeetingParticipants struct {
+type MeetingParticipant struct {
 	UserID string `json:"userid"` // 参会者用户 ID。
 	//Base64EncodedUsername string `json:"user_name"` // 入会用户名（base64）
 	//SHA256HashedPhone     string `json:"phone"`     // 参会者手机号 hash 值 SHA256（手机号/secretid）。
-	UserName string `json:"user_name"` // 入会用户名（base64）
-	Phone    string `json:"phone"`     // 参会者手机号 hash 值 SHA256（手机号/secretid）。
-	JoinTime string `json:"join_time"` // 参会者加入会议时间戳（单位秒）。
-	LeftTime string `json:"left_time"` // 参会者离开会议时间戳（单位秒）。
+	UserName   string `json:"user_name"`  // 入会用户名（base64）
+	Phone      string `json:"phone"`      // 参会者手机号 hash 值 SHA256（手机号/secretid）。
+	JoinTime   string `json:"join_time"`  // 参会者加入会议时间戳（单位秒）。
+	LeftTime   string `json:"left_time"`  // 参会者离开会议时间戳（单位秒）。
+	MsOpenID   string `json:"ms_open_id"` //当场会议的用户临时 ID
+	UUID       string `json:"uuid"`       //用户的身份 ID，仅适用于单场会议。
+	OpenID     string `json:"open_id"`    //已授权用户的 ID。
+	InstanceID int    `json:"instanceid"` // 用户的终端设备类型
+	UserRole   int    `json:"user_role"`  //用户角色：
+	IP         string `json:"ip"`
+	Location   string `json:"location"`
+	JoinType   int    `json:"join_type"`
+	Net        string `json:"net"`
+	AppVersion string `json:"app_version"`
+	AudioState bool   `json:"audio_state"`
+	VideoState bool   `json:"video_state"`
 }
 
 // 查询用户的会议列表中会议对象

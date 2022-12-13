@@ -273,8 +273,6 @@ func (meeting Meeting) Do(req MeetingRequest) (MeetingResponse, error) {
 
 	resp, err := client.Do(hReq)
 
-	//fmt.Println("@@@@@@@@@@", reqBody, err)
-
 	if err != nil {
 		//log.Println(err)
 		return nil, err

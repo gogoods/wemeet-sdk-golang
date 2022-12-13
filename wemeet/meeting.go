@@ -164,15 +164,15 @@ func (req *MeetingQueryParticipantsRequest) fillPlaceholder(args ...interface{})
 func (req *MeetingQueryParticipantsRequest) fillDefaultValue() {}
 
 type MeetingQueryParticipantsResponse struct {
-	MeetingID         string                 `json:"meeting_id"`          // 会议的唯一 ID
-	MeetingCode       string                 `json:"meeting_code"`        // 会议号码
-	Subject           string                 `json:"subject"`             // 会议主题
-	ScheduleStartTime string                 `json:"schedule_start_time"` // 预定会议开始时间戳（单位秒）
-	ScheduleEndTime   string                 `json:"schedule_end_time"`   // 预定会议结束时间戳（单位秒）
-	Participants      []*MeetingParticipants `json:"participants"`        // 参会人员对象数组。
-	HasRemaining      bool                   `json:"has_remaining"`       // 是否还有未拉取的数据，该接口可多次拉取到的数据总量上限为5w条。
-	NextPos           uint32                 `json:"next_pos"`            // 和“has_remaining”一起，数据量比较大的情况下支持参会成员列表的多次获取。
-	TotalCount        uint32                 `json:"total_count"`         // 当前参会总人次。
+	MeetingID         string                `json:"meeting_id"`          // 会议的唯一 ID
+	MeetingCode       string                `json:"meeting_code"`        // 会议号码
+	Subject           string                `json:"subject"`             // 会议主题
+	ScheduleStartTime string                `json:"schedule_start_time"` // 预定会议开始时间戳（单位秒）
+	ScheduleEndTime   string                `json:"schedule_end_time"`   // 预定会议结束时间戳（单位秒）
+	Participants      []*MeetingParticipant `json:"participants"`        // 参会人员对象数组。
+	HasRemaining      bool                  `json:"has_remaining"`       // 是否还有未拉取的数据，该接口可多次拉取到的数据总量上限为5w条。
+	NextPos           uint32                `json:"next_pos"`            // 和“has_remaining”一起，数据量比较大的情况下支持参会成员列表的多次获取。
+	TotalCount        uint32                `json:"total_count"`         // 当前参会总人次。
 }
 
 // 获取某指定用户的会议列表: https://cloud.tencent.com/document/product/1095/42421
