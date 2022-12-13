@@ -19,6 +19,8 @@ var (
 	RequestDescriptorRecordDetail                 = MeetingRequestDescriptor{"/addresses/%s", "GET", "QUERY"}
 	RequestDescriptorRealControlCohosts           = MeetingRequestDescriptor{"/real-control/meetings/%s/cohosts", "PUT", "QUERY"}
 	RequestDescriptorRealControlScreenShared      = MeetingRequestDescriptor{"/real-control/meetings/%s/screen-shared", "PUT", "UPDATE"}
+	RequestDescriptorMeetingBindApp               = MeetingRequestDescriptor{"/app/toolkit", "POST", "Create"}
+	RequestDescriptorQueryMeetingApp              = MeetingRequestDescriptor{"/app/toolkit", "GET", "QUERY"}
 )
 
 // UserObj  用户对象 https://cloud.tencent.com/document/product/1095/42417

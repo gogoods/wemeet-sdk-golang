@@ -12,9 +12,11 @@ var meeting = wemeet.Meeting{
 }
 
 func main() {
-	CreateMeeting()
+	//CreateMeeting()
 	//QueryByID()
 	//QueryMeetingRecordList()
 	//QueryMeetingRecordAddress()
 	//QueryMeetingRecordDetail()
+	//MeetingBindApp()
+	QueryMeetingApp()
 }
