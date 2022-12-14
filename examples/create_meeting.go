@@ -25,16 +25,16 @@ func CreateMeeting() {
 				GuestName:   "",
 			},
 		},
-		Subject:   "测试会议-20221121-3",
+		Subject:   "测试会议-20221214-1",
 		StartTime: strconv.Itoa(int(time.Now().Unix() + 60)),
 		EndTime:   strconv.Itoa(int(time.Now().Unix() + 3600)),
 		Settings: &wemeet.Settings{
 			MuteEnableJoin:  true,
 			AllowUnmuteSelf: true,
 		},
-		EnableHostKey: true,
-		HostKey:       "111111",
-		Password:      "123456",
+		EnableHostKey: false,
+		HostKey:       "000000",
+		//Password: "123456",
 		//TimeZone:      "Asia/Shanghai",
 	})
 

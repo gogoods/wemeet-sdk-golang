@@ -1,5 +1,10 @@
 package wemeet
 
+import (
+	"strconv"
+	"time"
+)
+
 // 创建会议: https://cloud.tencent.com/document/product/1095/42417
 type MeetingCreateRequest struct {
 	UserID                    string         `json:"userid"`             // 调用方用于标示用户的唯一 ID
@@ -36,6 +41,7 @@ func (req MeetingCreateRequest) fillPlaceholder(args ...interface{}) string {
 	return req.getDescriptor().Url
 }
 
+// 腾讯会议api这些参数当传零值时，也要去校验，fuc
 func (req *MeetingCreateRequest) fillDefaultValue() {
 	if req.TimeZone == "" {
 		req.TimeZone = "Asia/Shanghai"
@@ -45,6 +51,9 @@ func (req *MeetingCreateRequest) fillDefaultValue() {
 	}
 	if req.Settings != nil && req.Settings.AutoRecordType == "" {
 		req.Settings.AutoRecordType = "none"
+	}
+	if req.HostKey == "" {
+		req.HostKey = strconv.FormatInt(time.Now().UnixMicro(), 10)[10:]
 	}
 }
 

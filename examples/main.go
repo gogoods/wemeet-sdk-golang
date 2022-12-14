@@ -1,6 +1,8 @@
 package main
 
-import "github.com/gogoods/wemeet-sdk-golang/wemeet"
+import (
+	"github.com/gogoods/wemeet-sdk-golang/wemeet"
+)
 
 var meeting = wemeet.Meeting{
 	Registered: wemeet.EnableRegistered,
@@ -18,5 +20,5 @@ func main() {
 	//QueryMeetingRecordAddress()
 	//QueryMeetingRecordDetail()
 	//MeetingBindApp()
-	QueryMeetingApp()
+	//QueryMeetingApp()
 }

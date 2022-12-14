@@ -17,7 +17,11 @@ func (meeting Meeting) handleResponse(respBody []byte, descriptor *MeetingReques
 	case RequestDescriptorUserCreate,
 		RequestDescriptorUserUpdate,
 		RequestDescriptorUserDelete,
-		RequestDescriptorMeetingCancelByID:
+		RequestDescriptorMeetingCancelByID,
+		RequestDescriptorRealControlCohosts,
+		RequestDescriptorRealControlScreenShared,
+		RequestDescriptorMeetingBindApp:
+
 		// 返回的body为空
 		return nil, nil
 	case RequestDescriptorUserDetailQuery:
@@ -54,6 +58,10 @@ func (meeting Meeting) handleResponse(respBody []byte, descriptor *MeetingReques
 		response = resp
 	case RequestDescriptorRecordDetail:
 		var resp MeetingRecordDetailResponse
+		err = json.Unmarshal(respBody, &resp)
+		response = resp
+	case RequestDescriptorQueryMeetingApp:
+		var resp QueryMeetingAppResponse
 		err = json.Unmarshal(respBody, &resp)
 		response = resp
 	default:
